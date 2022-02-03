@@ -10,6 +10,7 @@ export class photographers {
     }
 
     get folderName() {
-        return this.name.toLowerCasee().replace(" ", "");
+        return this.name.toLowerCase().replace(" ", "");
     }
 }
+

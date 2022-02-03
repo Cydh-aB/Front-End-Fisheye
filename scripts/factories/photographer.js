@@ -1,12 +1,13 @@
 function photographerFactory(data) {
-    const { name, portrait, city, country, tagline, price } = data;
+    const { name, id, portrait, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/photographers_id_photos/${portrait}`;
+    const lienPage = "photographer.html?id=" + id;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const urlPhotographer = document.createElement( 'a' );
-        urlPhotographer.setAttribute("href", 'photographer.html')
+        urlPhotographer.setAttribute("href", lienPage)
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );

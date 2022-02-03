@@ -15,7 +15,7 @@ function profilFactory(currentPhotographer) {
     const profilTagline = document.createElement("p");
     const containerImgProfil = document.createElement("div");
     const profilImg = document.createElement("img");
-    const profil = document.createElement(".profil");
+    const profil = document.getElementsByClassName("photograph-header");
     
     // class - attributs HTML
 
@@ -35,15 +35,26 @@ function profilFactory(currentPhotographer) {
 
     // éléments => DOM
 
-    profil.append(profilBody, btnModal, containerImgProfil);
+    profil.appendChild(profilBody);
+    profil.appendChild(containerImgProfil);
+    profilBody.appendChild(profilTitle);
+    profilBody.appendChild(profilLocation);
+    profilBody.appendChild(profilTagline);
 
-    profilBody.append(
-        profilTitle,
-        profilLocation,
-        profilTagline
-    );
+    //profil.appendChild(
+      //  profilBody, 
+        //containerImgProfil
+    //);
+
+    //profilBody.append(
+      //  profilTitle,
+        //profilLocation,
+        //profilTagline
+    //);
 
     containerImgProfil.appendChild(profilImg);
+
+    return (profil);
 }
 
 export { profilFactory };
