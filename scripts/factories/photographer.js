@@ -5,6 +5,8 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
+        const urlPhotographer = document.createElement( 'a' );
+        urlPhotographer.setAttribute("href", 'photographer.html')
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
@@ -17,8 +19,11 @@ function photographerFactory(data) {
         p2.textContent = price + "€/jour";
         p2.className = 'price';
 
-        article.appendChild(img);
-        article.appendChild(h2);
+        article.appendChild(urlPhotographer);
+        urlPhotographer.appendChild(img);
+        urlPhotographer.appendChild(h2);
+        //article.appendChild(img);
+        //article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(p1);
         article.appendChild(p2);
