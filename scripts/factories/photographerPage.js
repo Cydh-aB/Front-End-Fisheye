@@ -5,8 +5,8 @@ function profilFactory(currentPhotographer) {
 
     //Chemin vers la photo du photographe.
 
-    const lienPhoto = "./assets/photographers" + currentPhotographer.portrait;
-
+    const lienPhoto = "/assets/photographers/photographers_id_photos/" + currentPhotographer.portrait;
+    
     //Création du DOM
 
     const profilBody = document.createElement("div");
@@ -15,7 +15,8 @@ function profilFactory(currentPhotographer) {
     const profilTagline = document.createElement("p");
     const containerImgProfil = document.createElement("div");
     const profilImg = document.createElement("img");
-    const profil = document.getElementsByClassName("photograph-header");
+    const profil = document.querySelector("div");
+    const btn_contact = document.querySelector("button");
     
     // class - attributs HTML
 
@@ -26,7 +27,8 @@ function profilFactory(currentPhotographer) {
     profilTagline.classList.add("profil_body_tagline");
     profilImg.src = lienPhoto;
     profilTitle.setAttribute("lang", "fr");
-    profilImg.setAttribute("alt", '${currentPhotographer.name}');
+    profilImg.setAttribute("alt", "${currentPhotographer.name}");
+    profilImg.classList.add("profil_portrait");
 
     profilTitle.textContent = currentPhotographer.name;
     profilLocation.textContent = currentPhotographer.city + ", " + currentPhotographer.country;
@@ -36,6 +38,7 @@ function profilFactory(currentPhotographer) {
     // éléments => DOM
 
     profil.appendChild(profilBody);
+    profil.appendChild(btn_contact);
     profil.appendChild(containerImgProfil);
     profilBody.appendChild(profilTitle);
     profilBody.appendChild(profilLocation);
