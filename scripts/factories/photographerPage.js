@@ -44,17 +44,6 @@ function profilFactory(currentPhotographer) {
     profilBody.appendChild(profilLocation);
     profilBody.appendChild(profilTagline);
 
-    //profil.appendChild(
-      //  profilBody, 
-        //containerImgProfil
-    //);
-
-    //profilBody.append(
-      //  profilTitle,
-        //profilLocation,
-        //profilTagline
-    //);
-
     containerImgProfil.appendChild(profilImg);
 
     return (profil);

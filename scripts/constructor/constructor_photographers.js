@@ -9,8 +9,9 @@ export class photographers {
         this.portrait = portrait;
     }
 
-    get folderName() {
-        return this.name.toLowerCase().replace(" ", "");
+    getFolderName() {
+       var folder = this.name.split(' ');
+       return folder[0];
     }
 }
 
