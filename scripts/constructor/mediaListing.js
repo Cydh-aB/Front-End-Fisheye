@@ -2,23 +2,23 @@
 
 export class mediaListing {
     constructor() {
-        this.mediaListing = [];
+        this.mediaList = [];
     }
 
     addMedia(media){
-        this.mediaListing.push(media);
+        this.mediaList.push(media);
     }
 
     getMediaList(sort) {
-        const localMediaListing = this.mediaListing.slice();
+        const localMediaList = this.mediaList.slice();
         let returnList = [];
 
         if (sort === "popularite") {
-            localMediaListing.sort((a, b) => b.likes - a.likes);
+            localMediaList.sort((a, b) => b.likes - a.likes);
         } else if (sort === "date") {
-            localMediaListing.sort((a, b) => b.date - a.date);
+            localMediaList.sort((a, b) => b.date - a.date);
         } else if (sort === "titre") {
-            localMediaListing.sort(function (a, b) {
+            localMediaList.sort(function (a, b) {
                 const titleA = a.title.toUpperCase();
                 const titleB = b.title.toUpperCase();
                 if (titleA < titleB){
@@ -28,12 +28,20 @@ export class mediaListing {
                     return 1;
                 }
                 return 0;
-            });
+            });    
             
-        } else {
-            return localMediaListing.slice();
         }
-
+        
+        returnList = localMediaList.slice();
         return returnList;
+    }
+
+    getLikes() {
+        let sum = 0;
+        this.mediaList.forEach((media) => {
+            sum += media.likes;
+        });
+
+        return sum;
     }
 }

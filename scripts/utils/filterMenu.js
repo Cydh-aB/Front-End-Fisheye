@@ -4,7 +4,7 @@ export function displayFilterMenu(mediaFactory) {
     const filterSelectTrigger = document.querySelector(".filter_select_trigger");
     const filterOptions = document.querySelectorAll(".filter_option");
     //Selection du premier enfant de l'élément filter_select
-    const firstFilterOption = document.querySelector(".filter_select a:last-child");
+    const firstFilterOption = document.querySelector(".filter_select a:first-child");
 
     //Selection du dernier enfant filter_select
     const lastFilterOption = document.querySelector(".filter_select a:last-child");
@@ -16,11 +16,11 @@ export function displayFilterMenu(mediaFactory) {
             e.preventDefault();
             //si un filtre ne contient pas la classe selected -> selection du premier parent du filtre contenant la classe
             //filterOption.selected
-            if (!this.classlist.contains("selected")) {
-                const selected = this.parentNode.querySelector(".filter-option.selected");
-
-                selected.classlist.remove("selected");
-                this.classlist.add("selected");
+            if (!this.classList.contains("selected")) {
+                const selected = this.parentNode.querySelector(".filter_option.selected");
+                
+                selected.classList.remove("selected");
+                this.classList.add("selected");
                 this.setAttribute("aria-selected", "true");
                 // l'ancetre le plus proche de l'élément filter_select_trigger span
                 // remplace en passant le filtre sélectionné en haut
