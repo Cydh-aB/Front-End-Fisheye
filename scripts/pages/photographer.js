@@ -134,6 +134,7 @@ function mediaFactory() {
                     heart.classList.add("far");
                     cardsMediaCompteurLike.textContent = media.likes;
                     heart.classList.remove("heart_anim");
+                    displayInfo();
                 } else {
                     media.likes++;
                     heart.classList.remove("far");
@@ -174,7 +175,7 @@ function displayInfo() {
 
     priceContainer.classList.add("price_container");
     price.classList.add("price");
-    totalLikesContainer.classList.add("price_container");
+    totalLikesContainer.classList.add("total_likes_container");
     totalLikesNb.classList.add("total_likes");
     totalLikesNb.textContent = `${mediaList.getLikes()}`;
     price.textContent = `${currentPhotographer.price}€/ jour`;

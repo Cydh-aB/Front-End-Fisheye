@@ -86,7 +86,7 @@ h1 {
 
 .price {
     font-weight: 400;
-    color: #757575;
+    color: black;
 }
 
 .photographer_section article img {
@@ -267,4 +267,41 @@ a {
 button {
     background-color: transparent;
     border: none;
+}
+
+
+/**Total + Price container **/
+
+.total_likes_container {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    position: fixed;
+    padding: 0.5rem 1rem;
+    bottom: 0;
+    right: 5%;
+    background-color: #DB8876;
+    height: auto;
+    width: auto;
+    border-radius: 0.5rem 0.5rem 0 0;
+    color: black;
+}
+
+.total_likes_container i {
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.total_likes, .price {
+    font-weight: 500;
+    font-size: large;
+    text-align: center;
+}
+
+.price_container p{
+    margin: 0;
 }
