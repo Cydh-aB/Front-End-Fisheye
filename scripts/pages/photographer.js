@@ -4,6 +4,7 @@ import { profilFactory } from "../factories/photographerPage.js";
 import { Media } from "../constructor/media.js";
 import { mediaListing } from "../constructor/mediaListing.js";
 import { displayFilterMenu } from "../utils/filterMenu.js";
+import { displayLightbox, openLightBox } from "../utils/lightbox.js";
 
 const linkData = "data/photographers.json";
 const urlParams = new URLSearchParams(window.location.search);
@@ -62,6 +63,7 @@ function createData(data) {
                     media.likes,
                     media.date,
                     media.price,
+                    media.type,
                     currentPhotographer.name.toLowerCase().replace(" ", "") + "/"
                 )
             );
@@ -91,6 +93,11 @@ function mediaFactory() {
         const cardsMediaCompteurLike = document.createElement("p");
         const heartLink = document.createElement("button");
         const heart = document.createElement("i");
+
+        const lightboxLink = document.querySelectorAll(".cards_media_img");
+        lightboxLink.forEach ((link) => {
+            link.addEventListener("click", openLightBox);
+        });
         
         // Class section
 
@@ -123,7 +130,7 @@ function mediaFactory() {
         heartLink.append(heart);
 
         compteurLikes(totalLikes);
-
+        
         //fonction compteur likes
 
         function compteurLikes() {
@@ -145,6 +152,15 @@ function mediaFactory() {
                 }
             });
         }
+
+        cardsMediaImg.addEventListener("click", (e) => e.preventDefault());
+
+        cardsMediaImg.addEventListener("click", () => displayLightbox(media, mediaFactory, currentPhotographer));
+        cardsMediaImg.addEventListener("keycode", (e) => {
+            if (e.code === "13") {
+                displayLightbox(media, mediaFactory, currentPhotographer);
+            }
+        });
     
     });
 }

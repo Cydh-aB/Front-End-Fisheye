@@ -15,8 +15,8 @@ function profilFactory(currentPhotographer) {
     const profilTagline = document.createElement("p");
     const containerImgProfil = document.createElement("div");
     const profilImg = document.createElement("img");
-    const profil = document.querySelector("div");
-    const btn_contact = document.querySelector("button");
+    const btn_contact = document.querySelector(".contact_button");
+    const banner = document.querySelector(".photograph_header");
     
     // class - attributs HTML
 
@@ -37,16 +37,16 @@ function profilFactory(currentPhotographer) {
 
     // éléments => DOM
 
-    profil.appendChild(profilBody);
-    profil.appendChild(btn_contact);
-    profil.appendChild(containerImgProfil);
+    banner.appendChild(profilBody);
+    banner.appendChild(btn_contact);
+    banner.appendChild(containerImgProfil);
     profilBody.appendChild(profilTitle);
     profilBody.appendChild(profilLocation);
     profilBody.appendChild(profilTagline);
 
     containerImgProfil.appendChild(profilImg);
 
-    return (profil);
+    return (banner);
 }
 
 export { profilFactory };

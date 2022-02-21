@@ -17,7 +17,7 @@ export class Media {
             photo.likes = likes;
             photo.date = new Date(date);
             photo.price = price;
-            //photo.path = path + link;
+            photo.type = "jpg";
 
             return photo;
 
@@ -31,6 +31,7 @@ export class Media {
             shortVideo.likes = likes;
             shortVideo.photographerId = photographerId;
             shortVideo.title = title;
+            shortVideo.type = "mp4";
 
             return shortVideo;
         }

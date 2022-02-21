@@ -102,13 +102,100 @@ h1 {
 }
 
 
-/** Section profil photographe **/
+            /** Section profil photographe **/
 
 .section {
     display: block;
 }
 
-/** Filter */
+/** Lighbox **/
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(219, 219, 219, 0.7);
+}
+
+.lightbox .lightbox_windows {
+    color: #901C1C;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.lightbox .lightbox_windows .container_slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 0.5rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.lightbox .lightbox_windows .container_slide img {
+    margin: auto;
+    height: 85%;
+    width: 70%;
+    position: absolute;
+    border-radius: 0.5rem;
+    background-color: grey;
+    object-fit: cover;
+}
+
+.lightbox .lightbox_windows .command {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.lightbox .lightbox_windows .command .right, .lightbox .lightbox_windows .command .left {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox .lightbox_windows .command button:nth-child(1) {
+    top: 40%;
+    transform: translate(-50%);
+    left: 10%;
+}
+
+.lightbox .lightbox_windows .command button:nth-child(2) {
+    top: 40%;
+    transform: translate(50%);
+    right: 7%;
+}
+
+.lightbox .lightbox_windows .command .right em, .lightbox .lightbox_windows .command .left em {
+    font-size: 40px;
+    position: relative;
+    color: #901c1c;
+}
+
+.lightbox_media_title {
+    position: absolute;
+    bottom: 2%;
+    left: 15%;
+    margin: auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/** Filter **/
 
 .filter {
     display: flex;
@@ -202,8 +289,17 @@ a {
     border-bottom-right-radius: 0;
 }
 
-/**Media**/
+                        /**Media**/
 
+
+/**Banner**/
+
+.photograph_header {
+    display: flex;
+    justify-content: space-around;
+}
+
+/****/
 
 #cards_media_container {
     display : flex;
