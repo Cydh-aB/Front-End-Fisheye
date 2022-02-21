@@ -14,6 +14,9 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
     next.addEventListener("click", nextSlide);
     previous.addEventListener("click", previousSlide);
     btnClose.addEventListener("click", closeLightbox);
+    btnClose.addEventListener("click", () =>{
+        location.reload(true);
+    });
 
     lightboxModal.addEventListener("keydown", (e) => {
         if (e.code === "Escape") {

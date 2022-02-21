@@ -150,6 +150,17 @@ h1 {
     object-fit: cover;
 }
 
+.lightbox .lightbox_windows .container_slide video {
+    display: flex;
+    margin: auto;
+    position: absolute;
+    height: 85%;
+    width: 70%;
+    border-radius: 0.6rem;
+    background-color: #868686;
+    object-fit: cover;
+}
+
 .lightbox .lightbox_windows .command {
     top: 0px;
     width: 100%;
@@ -184,6 +195,17 @@ h1 {
     font-size: 40px;
     position: relative;
     color: #901c1c;
+}
+
+.lightbox .lightbox_windows .command .close {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    top: 2%;
+    right: 7%;
+    font-size: x-large;
+    cursor: pointer;
+    color: #901C1C;
 }
 
 .lightbox_media_title {
@@ -315,11 +337,12 @@ a {
     color: #901C1C;
 }
 
-.cards_media img {
+.cards_media img, .cards_media video {
     width: 15rem;
     height: 15rem;
     border-radius: 0.5rem;
 }
+
 
 .media_img {
     object-fit: cover;
