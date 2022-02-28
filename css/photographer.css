@@ -1,6 +1,3 @@
-#contact_modal {
-    display: none;
-}
 
 div {
     display: block;
@@ -30,7 +27,7 @@ div {
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,14 +41,10 @@ div {
     width: 100%;
 }
 
-.modal header img {
-    cursor: pointer;
-}
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
 }
 
 form {
@@ -76,7 +69,7 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 45px;
     border: none;
     border-radius: 5px;
 }

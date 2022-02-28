@@ -108,6 +108,49 @@ h1 {
     display: block;
 }
 
+/** modale_contact **/
+#contact_modal {
+    display: none;
+}
+
+#contact_modal.opened {
+    display: block;
+}
+
+.modal header h2 {
+    font-size: 3rem;
+    width: 70%;
+}
+
+#msg {
+    height: 12rem;
+    outline: none;
+}
+
+.error_alert {
+    color: #901C1C;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.modal form {
+    margin-top: 3rem;
+}
+
+form textarea {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.modal label {
+    font-size: 1.8rem;
+}
+
+.close_btn {
+    cursor: pointer;
+}
+
 /** Lighbox **/
 
 .lightbox {

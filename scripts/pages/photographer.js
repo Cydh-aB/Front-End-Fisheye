@@ -5,6 +5,8 @@ import { Media } from "../constructor/media.js";
 import { mediaListing } from "../constructor/mediaListing.js";
 import { displayFilterMenu } from "../utils/filterMenu.js";
 import { displayLightbox, openLightBox } from "../utils/lightbox.js";
+import { verifModal, displayModal, closeModal } from "../utils/contactForm.js";
+
 
 const linkData = "data/photographers.json";
 const urlParams = new URLSearchParams(window.location.search);
@@ -16,6 +18,8 @@ let currentPhotographer;
 let totalLikes = [];
 let totalLikesPhotographer;
 
+
+export { currentPhotographer };
 //Récupération des données
 
 window.addEventListener("load", () => {
@@ -168,9 +172,25 @@ function mediaFactory() {
 //Fonction pour afficher la page
 
 function displayPage() {
+    const modalTitle = document.querySelector(".modal_title");
+    const btnContact = document.querySelector(".contact_button");
+    const closeBtn = document.querySelector(".close_btn");
+    closeBtn.href = "#";
+
     document.title = "-" + currentPhotographer.name;
+    modalTitle.textContent = `Contactez moi ${currentPhotographer.name}`;
+
+    closeBtn.addEventListener("click", () => closeModal());
+
+    btnContact.addEventListener("click", () => displayModal());
+    closeBtn.addEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+            closeModal();
+        }
+    });
 
     profilFactory(currentPhotographer, mediaFactory);
+    verifModal(currentPhotographer);
     displayFilterMenu(mediaFactory);
     displayInfo(mediaFactory);
     mediaFactory();

@@ -35,7 +35,7 @@
 
     <main id="main">
       <div class="photograph_header" role="banner">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
       </div>
 
       <!--Menu Filtre-->
@@ -64,19 +64,29 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 class="modal_title">Contactez-moi</h2>
+          <img class="close_btn" src="assets/icons/close.svg"/>
         </header>
-				<form>
+				<form id="contact" name="contact_form" class="modal_form" >
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="prenom">Prénom</label>
+						<input class="firstName_input" id="prenom" type="text" name="first_name" aria-label="Entrez votre prénom" aria-required="true"/>
+            <span id="first_error" class="error_alert">Vous devez entrez votre prénom.</span>
+            <label for="nom">Nom</label>
+						<input class="lastName_input" id="nom" type="text" name="last_name" aria-label="Entrez votre nom" aria-required="true"/>
+            <span id="last_error" class="error_alert">Vous devez entrez votre nom.</span>
+            <label for="mail">Email</label>
+						<input class="mail_input" id="mail" type="text" name="mail" aria-label="Entrez votre adresse mail" aria-required="true"/>
+            <span id="mail_error" class="error_alert">Vous devez entrez votre mail.</span>
+            <label for="msg">Votre message</label>
+						<textarea class="msg_input" id="msg" type="text" name="message" aria-label="Entrez votre message" aria-required="true"></textarea>
+            <span id="msg_error" class="error_alert">Vous devez écrire un message.</span>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" type="submit" value="Envoyer" name="envoyer" aria-label="Envoyer le message">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <!-- <script src="/scripts/utils/contactForm.js"></script> -->
     <script src="/scripts/pages/photographer.js" type="module"></script>
   </body>
 </html>

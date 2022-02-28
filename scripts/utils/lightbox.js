@@ -34,6 +34,7 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
         e.preventDefault;
         if (mediaFactory.indexOf(currentMedia) + 1 >= mediaFactory.lenght) {
             currentMedia = mediaFactory[0];
+            
         } else {
             currentMedia = mediaFactory[mediaFactory.indexOf(currentMedia) + 1];
         }
