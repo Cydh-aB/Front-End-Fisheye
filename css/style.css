@@ -2,7 +2,7 @@
 
 body {
     font-family: "DM Sans", sans-serif;
-    margin: 0;
+    margin: 0 5% 0 5%;
 }
 
 .fa, .far, .fas {
@@ -27,6 +27,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    margin-top: 2rem;
 }
 
 h1 {
@@ -37,20 +38,22 @@ h1 {
     font-weight: 400;
     line-height: 47px;
     letter-spacing: 0em;
-    text-align: center;
-    
+    margin-right: 12rem;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 13.5rem;
 }
 
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 9rem;
     margin-top: 100px;
+    grid-column-gap: 9rem;
+    grid-row-gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .photographer_section article {
@@ -65,17 +68,18 @@ h1 {
     color: #D3573C;
     font-size: 36px;
     text-align: center;
+    margin-bottom: 0;
 }
 
 /** Ajout des styles supplémentaires **/
 
 .photographer_section article h3 {
     color: #901C1C;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .photographer_section article p {
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 13px;
@@ -86,7 +90,7 @@ h1 {
 
 .price {
     font-weight: 400;
-    color: black;
+    color: #757575;
 }
 
 .photographer_section article img {
@@ -95,6 +99,7 @@ h1 {
     clip-path:ellipse(50% 50%);
     display: block;
     margin: auto;
+    object-fit: cover;
 }
 
 .photographer_section article a {
@@ -106,6 +111,34 @@ h1 {
 
 .section {
     display: block;
+}
+
+main {
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+/**Profil header**/
+
+.profil_portrait {
+    height: 13rem;
+    width: 13rem;
+    margin-top: 0.7rem;
+}
+
+.profil_body h1 {
+    font-size: 64px;
+    color:#D3573C;
+}
+
+.profil_body_location {
+    font-size: 24px;
+    color: #901C1C;
+}
+
+.profil_body_tagline {
+    font-size: 18px;
+    color: #868686;
 }
 
 /** modale_contact **/
@@ -267,7 +300,8 @@ form textarea {
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    margin: 3rem 3%;
+    margin-left: 3rem;
+    margin-top: 3rem;
     font-weight: 500;
 }
 
@@ -278,7 +312,7 @@ a {
 
 .filter h3 {
     margin-right: 2rem;
-    font-size: 2rem;
+    font-size: 22px;
 }
 
 .filterMenu {
@@ -297,7 +331,7 @@ a {
     align-items: center;
     justify-content: space-around;
     padding: 0 2.3rem;
-    font-size: 2rem;
+    font-size: 22px;
     height: 4rem;
     color: white;
     line-height: 6rem;
@@ -315,7 +349,7 @@ a {
     color: white;
     line-height: 5.5rem;
     cursor: pointer;
-    font-size: 1.8rem;
+    font-size: 22px;
 }
 
 .filter_option:not(.selected) {
@@ -354,6 +388,44 @@ a {
     border-bottom-right-radius: 0;
 }
 
+.arrow {
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+}
+
+.arrow::before, .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.10rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.arrow::after {
+    left: 0.5rem;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+    left: 0.5rem;
+    transform: rotate(45deg);
+    background-color: white;
+}
+
+.open .arrow::before {
+    transform: rotate(-45deg);
+    background-color: white;
+}
+
+.arrow::before {
+    left: -0.2rem;
+    transform: rotate(45deg);
+    background-color: white;
+}
+
                         /**Media**/
 
 
@@ -362,27 +434,30 @@ a {
 .photograph_header {
     display: flex;
     justify-content: space-around;
+    background-color: #FAFAFA;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 /****/
 
 #cards_media_container {
-    display : flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display : grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 5rem;
     margin-bottom: 10rem;
 }
 
 .cards_media {
-    width: 15rem;
+    width: 23rem;
     height: 13rem;
     margin: 3rem;
     color: #901C1C;
 }
 
 .cards_media img, .cards_media video {
-    width: 15rem;
-    height: 15rem;
+    width: 23rem;
+    height: 19rem;
     border-radius: 0.5rem;
 }
 
@@ -407,6 +482,7 @@ a {
     overflow: hidden;
     padding-right: 1rem;
     text-overflow: ellipsis;
+    font-size: 20px;
 }
 
 .cards_media_footer .header_like {

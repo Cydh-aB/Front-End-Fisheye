@@ -8,15 +8,15 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
     const next = document.querySelector(".right");
     const previous = document.querySelector(".left");
     const titleMedia = document.querySelector(".lightbox_media_title");
-    const mediaImg = document.querySelector("img");
-    const mediaVideo = document.querySelector("video");
+    const mediaImg = document.createElement("img");
+    const mediaVideo = document.createElement("video");
 
     next.addEventListener("click", nextSlide);
     previous.addEventListener("click", previousSlide);
     btnClose.addEventListener("click", closeLightbox);
-    btnClose.addEventListener("click", () =>{
-        location.reload(true);
-    });
+    // btnClose.addEventListener("click", () =>{
+    //     location.reload(true);
+    // });
 
     lightboxModal.addEventListener("keydown", (e) => {
         if (e.code === "Escape") {
@@ -32,7 +32,7 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
 
     function nextSlide(e) {
         e.preventDefault;
-        if (mediaFactory.indexOf(currentMedia) + 1 >= mediaFactory.lenght) {
+        if (mediaFactory.indexOf(currentMedia) + 1 >= mediaFactory.length) {
             currentMedia = mediaFactory[0];
             
         } else {
@@ -44,10 +44,10 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
     function previousSlide(e) {
         e.preventDefault;
         if (mediaFactory.indexOf(currentMedia) <= +0) {
-            currentMedia = mediaFactory[mediaFactory.lenght - 1];
+            currentMedia = mediaFactory[mediaFactory.length -1];
             displayContent(currentMedia);
         } else {
-            currentMedia = mediaFactory[mediaFactory.indexOf(currentMedia) - 1];
+            currentMedia = mediaFactory[mediaFactory.indexOf(currentMedia) -1];
             displayContent(currentMedia);
         }
     }
@@ -56,7 +56,6 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
         const lightboxModal = document.querySelector(".lightbox");
         const main = document.getElementById("main");
         lightboxModal.style.display = "none";
-        main.classList.remove("anti_scroll");
         main.style.display = "block";
     }
 
@@ -65,18 +64,19 @@ function displayLightbox(media, mediaFactory, currentPhotographer) {
     function displayContent() {
         if (currentMedia.type === "jpg") {
             mediaVideo.replaceWith(mediaImg);
-            const linkImg = `assets/photographers/${currentPhotographer.getFolderName()}/`
+            const linkImg = `assets/photographers/${currentPhotographer.getFolderName()}/`;
             mediaImg.src = linkImg + currentMedia.image;
             titleMedia.textContent = `${currentMedia.title}`;
-            mediaImg.alt = currentMedia.alt;
+            mediaImg.alt = currentMedia.image;
             slideContainer.appendChild(mediaImg);
         } else if (currentMedia.type === "mp4") {
-            mediaImg.src = `assets/photographers/${currentPhotographer.getFolderName()}/${currentMedia.video}`;
+            mediaVideo.src = `assets/photographers/${currentPhotographer.getFolderName()}/${currentMedia.video}`;
             titleMedia.textContent = `${currentMedia.title}`;
             mediaImg.replaceWith(mediaVideo);
-            mediaVideo.setAttribute("alt", currentMedia.alt);
+            mediaVideo.setAttribute("alt", currentMedia.video);
             mediaVideo.autoplay = true;
             mediaVideo.loop = true;
+            mediaVideo.load();
             slideContainer.appendChild(mediaVideo);
         }
     };
@@ -88,7 +88,6 @@ function openLightBox() {
     const close = document.querySelector(".close");
     const lightboxModal = document.querySelector(".lightbox");
     lightboxModal.style.display = "flex";
-    main.classList.add("anti_scroll");
     close.focus();
     main.style.display = "none";
 }

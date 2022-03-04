@@ -19,7 +19,7 @@ let totalLikes = [];
 let totalLikesPhotographer;
 
 
-export { currentPhotographer };
+// export { currentPhotographer };
 //Récupération des données
 
 window.addEventListener("load", () => {
@@ -99,7 +99,7 @@ function mediaFactory() {
         const heart = document.createElement("i");
 
         const lightboxLink = document.querySelectorAll(".cards_media_img");
-        lightboxLink.forEach ((link) => {
+        lightboxLink.forEach((link) => {
             link.addEventListener("click", openLightBox);
         });
         
