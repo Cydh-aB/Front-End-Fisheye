@@ -16,10 +16,8 @@ const main = document.getElementById("main");
 let mediasFactory = new Media();
 let currentPhotographer;
 let totalLikes = [];
-let totalLikesPhotographer;
 
 
-// export { currentPhotographer };
 //Récupération des données
 
 window.addEventListener("load", () => {
@@ -116,7 +114,14 @@ function mediaFactory() {
         heart.classList.add("fa-heart");
         heart.classList.add("heart");
 
-        cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
+        // attribute
+        cardsMediaImg.setAttribute("role", "button");
+        cardsMediaImg.setAttribute("title", media.title);
+        cardsMediaImg.setAttribute("aria-describedby", "ouvrir le slider");
+        cardsMediaImg.href = "#";
+        cardsMediaCompteurLike.setAttribute("aria-labeledby", `likes`);
+        heartLink.setAttribute("tabindex", "0");
+        cardsMediaCompteurLike.setAttribute("tabindex", "0");
         cardsMediaCompteurLike.setAttribute("aria-label", `Nombre de likes ${media.likes}`);
         heartLink.setAttribute("aria-label", "Aimer cette photo");
         heartLink.setAttribute("role", "button");

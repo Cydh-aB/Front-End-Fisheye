@@ -27,7 +27,7 @@ function profilFactory(currentPhotographer) {
     profilTagline.classList.add("profil_body_tagline");
     profilImg.src = lienPhoto;
     profilTitle.setAttribute("lang", "fr");
-    profilImg.setAttribute("alt", "${currentPhotographer.name}");
+    profilImg.setAttribute("alt", `${currentPhotographer.name}`);
     profilImg.classList.add("profil_portrait");
 
     profilTitle.textContent = currentPhotographer.name;

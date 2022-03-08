@@ -21,6 +21,10 @@ body {
     line-height: 1;
 }
 
+button:focus-visible, input:focus-visible,textarea:focus-visible, p:focus-visible, a:focus-visible {
+    outline: 3px solid #D3573C;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -43,7 +47,7 @@ h1 {
 
 .logo {
     height: 50px;
-    margin-left: 13.5rem;
+    margin-left: 12.5rem;
 }
 
 .photographer_section {
@@ -150,9 +154,19 @@ main {
     display: block;
 }
 
+.modal {
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 150;
+    top: 50%;
+    min-height: 165px;
+}
+
 .modal header h2 {
     font-size: 3rem;
-    width: 70%;
+    font-weight: bold;
 }
 
 #msg {
@@ -182,6 +196,17 @@ form textarea {
 
 .close_btn {
     cursor: pointer;
+}
+
+.mask_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(107, 107, 107, 0.5);
+    overflow: hidden;
+    z-index: 100;
 }
 
 /** Lighbox **/
@@ -369,7 +394,6 @@ a {
     background: #901C1C;
     transition: all 0.5s;
     opacity: 0;
-    visibility: 0;
     pointer-events: none;
     z-index: 2;
     border-bottom-left-radius: 0.6rem;
@@ -455,12 +479,15 @@ a {
     color: #901C1C;
 }
 
-.cards_media img, .cards_media video {
+.cards_media img, .cards_media video, .cards_media a {
     width: 23rem;
     height: 19rem;
     border-radius: 0.5rem;
 }
 
+.cards_media a {
+    display: block;
+}
 
 .media_img {
     object-fit: cover;
@@ -518,7 +545,7 @@ button {
     position: fixed;
     padding: 0.5rem 1rem;
     bottom: 0;
-    right: 5%;
+    right: 15%;
     background-color: #DB8876;
     height: auto;
     width: auto;
@@ -538,6 +565,11 @@ button {
     font-weight: 500;
     font-size: large;
     text-align: center;
+    color: black;
+}
+
+.total_likes {
+    margin-right: 1.5rem;
 }
 
 .price_container p{

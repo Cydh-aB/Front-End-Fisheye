@@ -4,12 +4,13 @@ function displayModal() {
     const modal = document.getElementById("contact_modal");
     const main = document.getElementById("main");
     const closeBtn = document.querySelector(".close_btn");
+    const maskModal = document.querySelector(".mask_modal");
 
     modal.classList.add("opened");
     closeBtn.focus();
+    maskModal.addEventListener("click", closeModal);
     main.setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-hidden", "false");
-    main.style.display = "none";
     
 }
 
@@ -20,74 +21,7 @@ function closeModal() {
     modal.classList.remove("opened");
     main.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-hidden", "true");
-    main.style.display = "";
 }
-
-
-// document.forms["contact_form"].addEventListener("submit", function(validate) {
-//     var erreur;
-//     var inputs = this;
-
-//     if (inputs["first_name"].value === "" || inputs["first_name"].lenght < 2) {
-//         erreur = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-//         document.getElementById("first_error").innerHTML = erreur;
-//         document.getElementById("first_error").style.display = "inline";
-//     }
-
-//     if (inputs["last_name"].value === "" || inputs["last_name"].lenght < 2) {
-//         erreur = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-//         document.getElementById("last_error").innerHTML = erreur;
-//         document.getElementById("last_error").style.display = "inline";
-//     }
-
-//     if (inputs["mail"].value === "") {
-//         erreur = "Veuillez renseigner votre adresse email.";
-//         document.getElementById("mail_error").innerHTML = erreur;
-//         document.getElementById("mail_error").style.display = "inline";
-//     }
-
-//     if (inputs["message"].value === "" || inputs["message"].lenght < 3) {
-//         erreur = "Veuillez écrire votre message.";
-//         document.getElementById("msg_error").innerHTML = erreur;
-//         document.getElementById("msg_error").style.display = "inline";
-//     }
-
-//     if(erreur) {
-//         validate.preventDefault();
-//         return false;
-//     } else {
-//         const contactModal = document.querySelector(".modal");
-//         const modalTitle = document.querySelector(".modal_title");
-//         const closeBtn = document.querySelector(".close_btn");
-//         const bannerModal = document.querySelector(".modal_form");
-
-//         bannerModal.style.display = "none";
-//         modalTitle.innerHTML = `Votre message a bien été envoyé à <br>${currentPhotographer.name}`;
-//         modalTitle.classList.add("msg_valid");
-//         bannerModal.setAttribute("aria-hidden", "true");
-//         closeBtn.focus();
-
-
-//         //console.log de l'entrée utilisateur : 
-
-//         let datas = new FormData(bannerModal);
-//         for (let i of datas.entries()) {
-//             console.log(i[0], ":", i[1]);
-//         }
-//     }
-// });
-
-// Retrait dynamique du message d'erreur
-
-// function removeWarning() {
-//     document.getElementById("_error").style.display = "none";
-//   }
-  
-// document.getElementById("prenom").onkeyup = removeWarning;
-// document.getElementById("nom").onkeyup = removeWarning;
-// document.getElementById("mail").onkeyup = removeWarning;
-// document.getElementById("msg").onclick = removeWarning;
-  
 
 function verifModal(currentPhotographer) {
     const formFirstNameInput = document.querySelector(".firstName_input");
@@ -154,7 +88,6 @@ function verifModal(currentPhotographer) {
             verifMail === true &&
             verifMsg === true
         ) {
-            const contactModal = document.querySelector(".modal");
             const modalTitle = document.querySelector(".modal_title");
             const close = document.querySelector(".close_btn");
             const bannerModal = document.querySelector(".modal_form");

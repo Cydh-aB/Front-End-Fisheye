@@ -7,10 +7,6 @@ export class Media {
     createMedia(id, photographerId, title, image, video, likes, date, price) {
         if (image) {
             const photo = new Photo();
-            //photo.type = type; 
-            
-            
-            // photo.id = id;
             photo.photographerId = photographerId;
             photo.title = title;
             photo.image = image;
@@ -23,8 +19,6 @@ export class Media {
 
         } else if (video) {
             const shortVideo = new Video();
-            //shortVideo.type = type;
-            
             shortVideo.date = date;
             shortVideo.id = id;
             shortVideo.video = video;
